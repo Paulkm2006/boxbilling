@@ -1,0 +1,42 @@
+{
+  "name": "BoxBilling",
+  "description": "Open source billing and client management software",
+  "repository": "https://github.com/boxbilling/boxbilling",
+  "logo": "https://en.gravatar.com/userimage/23784106/a87f6410255bd56376a27a89e078c97c.png?size=200",
+  "keywords": ["php", "billing", "crm", "open-source"],
+  "website": "https://www.boxbilling.com",
+  "addons": [
+    "cleardb:ignite",
+    "scheduler:standard"
+  ],
+  "env": {
+    "BB_URL": {
+      "description": "Installation URL",
+      "value": "https://heroku-app-name.herokuapp.com"
+    },
+    "BB_LICENSE": {
+      "description": "Free BoxBilling License",
+      "value": "FREE-5RTY-POI8-0UYT-IUYT-TGH6"
+    },
+    "BB_SEF_URLS": {
+      "description": "Pretty urls",
+      "value": "1"
+    },
+    "BB_SALT": {
+      "description": "Encryption Salt for this installation",
+      "generator": "secret"
+    },
+    "BB_DEBUG": {
+      "description": "Debug mode flag",
+      "value": "0"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "sh bin/heroku.sh"
+  }
+}
